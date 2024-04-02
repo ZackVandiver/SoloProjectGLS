@@ -17,10 +17,10 @@ const navigate = useNavigate();
 async function handleSubmit (e) {
     e.preventDefault(); // prevents the default form submission behavior
     // here will later add logic to send data to the backend
-    console.log(username, password) // Temp logging for demo
+    console.log('event handleSubmit', username, password) // Temp logging for demo
     // Make an HTTP Post req to the backend
     try {
-        const response = await fetch('/api/login', { // backend api endpoint
+        const response = await fetch('http://localhost:3001/api/login', { // backend api endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
