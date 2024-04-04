@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Signup() {
-  // State for signup form (adjust as needed for your form fields)
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Hook to navigate user after successful signup
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implement signup logic here
-    console.log(username, password);
+    try {
+        const response = await fetch('http://localhost:3001/api/register', { // Change this URL to match your backend endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+            console.log('Signup Successful');
+            navigate('/login'); // Redirect user to login page upon successful signup
+        } else {
+            console.log('Signup Failed');
+            // Handle errors (e.g., display an error message)
+            // You might want to parse the response JSON and display the error message from the server
+        }
+    } catch (error) {
+        console.error('Signup error:', error);
+        // Handle the error (e.g., display an error message)
+    }
   };
 
   return (
@@ -39,3 +58,4 @@ function Signup() {
 }
 
 export default Signup;
+

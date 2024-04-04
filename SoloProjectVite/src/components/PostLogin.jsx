@@ -17,7 +17,7 @@ const PostLogin = () => {
   return (
     <div className="post-login-container">
       <div className="company-name">Group Genius</div>
-      <div className="description">Get Linked, Git Projects, GG.</div>
+      <div className="description">A team finder tool for Codesmith Alum</div>
       <div className="sort-dropdown-container">
         <label htmlFor="sort"></label>
         <select id="sort" value={sortOption} onChange={handleSortChange}>
