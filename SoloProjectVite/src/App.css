@@ -1,6 +1,6 @@
 /* Direct container for the scrolling content, including the grid */
 body {
-  background-color: lavender; /* Soft purple background */
+  background-color: rgba(255, 255, 255, 0.604); /* Soft purple background */
 }
 
 .scroll-container {
@@ -9,7 +9,6 @@ body {
   margin: 25vh auto 0 auto; /* Center the container with a top margin */
   height: 75vh; /* Adjusted height */
   overflow: auto; /* Scroll within this container */
-
 }
 
 /* Grid layout for cards */
@@ -29,7 +28,7 @@ body {
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -37,6 +36,13 @@ body {
   align-items: center;
   min-height: 150px; /* Minimum height for the card */
   max-height: 250px; /* Maximum height for the card */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.09); /* Enlarge the card on hover */
+  opacity: 0.9; /* Reduce opacity slightly on hover */
 }
 
 .card-header {
@@ -48,7 +54,6 @@ body {
   text-align: center; /* Center-align the GitHub and LinkedIn icons */
   width: 100%;
   margin: 0; /* Center links within card */
-  /* height: 110px; */
 }
 
 .card-cohort {
@@ -67,9 +72,127 @@ body {
 }
 
 .top-container {
-  height: 10px; /* Originally 25vh, now 25% smaller */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
+  position: fixed;
+  top: 20px; /* Adjust top position as needed */
+  right: 20px; /* Adjust right position as needed */
+  z-index: 999; /* Ensure it's above other content */
 }
+
+.toggle-button {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styling for the toggle button icon */
+.toggle-icon {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.post-login-container {
+  position: relative;
+}
+
+.company-name {
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px; /* Add space below the company name */
+}
+
+.description {
+  font-size: 14px; /* Adjust font size as needed */
+  text-align: center;
+  color: #555; /* Dark gray color for the description */
+}
+
+/* Styling for the Get Linked, Git Projects, and Get Grouped */
+.get-linked {
+  color: #0077b5; /* LinkedIn blue color */
+  font-weight: bold;
+}
+
+.get-projects {
+  color: #24292e; /* GitHub black color */
+  font-weight: bold;
+}
+
+.get-grouped {
+  color: #4caf50; /* Coding-green color for GG */
+  font-weight: bold;
+}
+
+/* 3bar dropdown topright */
+.dropdown-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dropdown-toggle {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  margin-bottom: 5px;
+}
+
+.dropdown-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-options li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-options li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Sort Button */
+.sort-dropdown-container {
+  position: absolute;
+  top: 230px;
+  right: 50px;
+}
+
+.sort-dropdown-container select {
+  padding: 8px 12px;
+  border: 1px ridge gray;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 4s 1;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+

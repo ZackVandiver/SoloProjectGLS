@@ -35,6 +35,18 @@ app.post('/api/login', (req, res) => {
     // res.json({ message: "Login succesful!"});
 });
 
+
+// const teams = [
+//     { id: 1, name: 'Team 1', members: ['Member 1', 'Member 2', 'Member 3'] },
+//     { id: 2, name: 'Team 2', members: ['Member 4', 'Member 5', 'Member 6'] },
+//     { id: 3, name: 'Team 3', members: ['Member 7', 'Member 8', 'Member 9'] }
+//   ];
+  
+//   // Teams route
+//   app.get('/api/teams', (req, res) => {
+//     res.json(teams);
+//   });
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

@@ -18,13 +18,14 @@ const UserCards = ({ sortOption }) => {
       sortedUsers.sort(() => Math.random() - 0.5);
     } else {
       sortedUsers.sort((a, b) => {
-        if (sortOption === 'cohort') {
-          return b.cohort - a.cohort;
-        } else if (sortOption === 'name') {
-          return a.name.localeCompare(b.name);
+        switch (sortOption) {
+          case 'cohort':
+            return b.cohort - a.cohort;
+          case 'name':
+            return a.name.localeCompare(b.name);
+          default:
+            return 0;
         }
-        // Add more sorting options here as needed
-        return 0;
       });
     }
 
@@ -37,7 +38,7 @@ const UserCards = ({ sortOption }) => {
       return;
     }
     setTimeout(() => {
-      setVisible((prevVisible) => prevVisible + 20);
+      setVisible(prevVisible => prevVisible + 20);
     }, 1500);
   };
 
